@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:34:42 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/17 19:17:09 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 20:53:00 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	count_segments(char *str, const char *charset)
 	return (count);
 }
 
-char	**ft_split(const char *s, char c);
+char	**ft_split(const char *s, char c)
 {
 	int	i;
 	int	k;
