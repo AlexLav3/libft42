@@ -6,13 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 03:15:27 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/16 22:12:44 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:52:50 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

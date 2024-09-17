@@ -6,13 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:00:35 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/16 22:35:04 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:41:34 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
@@ -22,7 +20,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 
 	i = 0;
 	char_ptr = (const char *)str;
-	while (char_ptr[i] && i <= n)
+	while (char_ptr[i] && i < n)
 	{
 		if (char_ptr[i] == c)
 		{

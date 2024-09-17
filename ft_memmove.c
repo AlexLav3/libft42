@@ -6,14 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:00:09 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/16 22:33:36 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:53:03 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -31,5 +28,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		char_ptr[i] = char_ptr2[i];
 		i++;
 	}
-	return (char_ptr);
+	return (dest);
 }

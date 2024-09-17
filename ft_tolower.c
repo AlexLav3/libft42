@@ -6,19 +6,17 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 03:43:05 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/16 20:30:46 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:14:38 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-char	ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
 	{
-		c = c + 32;
+		return (c + 32);
 	}
 	return (c);
 }

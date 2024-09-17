@@ -6,13 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:59:52 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/16 18:39:33 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:52:34 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

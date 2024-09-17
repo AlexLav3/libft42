@@ -6,13 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 01:45:53 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/16 21:53:25 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:53:19 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(char	*str)
 {

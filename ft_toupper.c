@@ -6,19 +6,17 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 03:33:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/16 20:31:20 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:15:07 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-char	ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
 	{
-		c -= 32;
+		return (c - 32);
 	}
 	return (c);
 }

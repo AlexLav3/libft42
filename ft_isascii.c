@@ -6,13 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:59:39 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/16 17:15:56 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/17 19:14:34 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_isascii(int c)
 {
