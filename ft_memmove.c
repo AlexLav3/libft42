@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:00:09 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/17 22:01:22 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/18 16:15:52 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const char	*char_ptr2;
 
 	i = 0;
+	if (n == 0 || dest == src)
+		return (dest);
 	char_ptr = (char *)dest;
 	char_ptr2 = (const char *)src;
 	if (char_ptr > char_ptr2)

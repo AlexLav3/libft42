@@ -6,30 +6,29 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:18:15 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/17 21:35:45 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/18 16:46:26 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (n < i)
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		return (s1[i] - s2[i]);
-	}
-	while ((s1[i] && s1[i]) && i < n)
-	{
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	return (0);
 }
 // int	main(void)
 // {
-// 	char	str1[50] = "Hello";
-// 	char	str2[50] = "Hellz";
-// 	printf("%d\n %d", ft_strncmp(str1, str2, 4), strncmp(str1, str2, 4));
+// 	char	str1[50] = "";
+// 	char	str2[50] = "dsfsd";
+
+// 	printf("%d\n %d", ft_strncmp(str1, str2, 10), strncmp(str1, str2, 10));
 // }

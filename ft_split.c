@@ -6,13 +6,13 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:34:42 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/17 20:53:00 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/18 21:37:30 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 {
 	unsigned int	i;
 
@@ -30,21 +30,18 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
-int	is_separator(char c, const char *charset)
+int	is_separator(char c, const char charset)
 {
 	int	i;
 
 	i = 0;
-	while (charset[i])
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
+	if (c == charset)
+		return (1);
+	i++;
 	return (0);
 }
 
-int	count_segments(char *str, const char *charset)
+int	count_segments(const char *str, char charset)
 {
 	int	count;
 	int	in_segment;
@@ -75,14 +72,14 @@ int	count_segments(char *str, const char *charset)
 
 char	**ft_split(const char *s, char c)
 {
-	int	i;
-	int	k;
-	int	start;
+	int		i;
+	int		k;
+	int		start;
 	char	**array;
 
 	i = 0;
 	k = 0;
-	array = malloc((count_segments(s, c) + 1) * sizeof(char *));
+	array = malloc((count_segments(s, c) + 1) * sizeof(const char *));
 	while (s[i])
 	{
 		if (!is_separator(s[i], c))
@@ -90,7 +87,7 @@ char	**ft_split(const char *s, char c)
 			start = i;
 			while (s[i] && !is_separator(s[i], c))
 				i++;
-			array[k] = malloc((i + 1) * sizeof(char));
+			array[k] = malloc((i + 1) * sizeof(const char));
 			ft_strncpy(array[k], &s[start], i - start);
 			k++;
 		}
@@ -99,4 +96,18 @@ char	**ft_split(const char *s, char c)
 	}
 	array[k] = NULL;
 	return (array);
+}
+int	main(void)
+{
+	char	s1[90] = "hello how are you-today";
+	char	s2 = '-';
+	char	**result;
+	int i = 0;
+
+	result = ft_split(s1, s2);
+	while(result[i])
+	{
+		printf("%s", result[i]);
+		i++;
+	}
 }
