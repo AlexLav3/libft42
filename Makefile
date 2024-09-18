@@ -6,6 +6,9 @@ ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_
 ft_split.c ft_strjoin.c
 OBJECTS = $(SOURCES:.c=.o)
 
+${NAME} : ${OBJECTS}
+	${CFLAGS} ${NAME} ${OBJECTS}
+
 all:${OBJECTS}
 	ar rcs ${NAME} ${OBJECTS}
 
@@ -13,6 +16,6 @@ clean:
 	rm $(OBJECTS)
 
 fclean: clean
-	rm libft.a
+	rm ${NAME}
 
 re: fclean all
