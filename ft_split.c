@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:34:42 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/18 21:59:38 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/18 22:22:53 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,13 @@ char	**ft_split(const char *s, char c)
 }
 int	main(void)
 {
-	char	s1[90] = "split  ||this|for|me|||||!|";
+	char	s1[90] = "split ||this|for|me|||||!|";
 	char	s2 = '|';
 	char	**result;
 	int i = 0;
 
 	result = ft_split(s1, s2);
+
 	while(result[i])
 	{
 		printf("%s", result[i]);
