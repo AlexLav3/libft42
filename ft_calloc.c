@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 19:55:52 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 21:17:38 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/19 20:13:17 by elavrich          #+#    #+#             */
+/*   Updated: 2024/09/19 21:36:43 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_strlen.c"
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int		i;
-	int		k;
-	char	*trimmed;
+	void	*ptr;
 
-	trimmed = malloc((ft_strlen((char *)s1)) * sizeof(char *) + 1);
-	k = 0;
-	i = 0;
-	while (s1[i])
-	{
-		i++;
-	}
-	trimmed[k] = '\0';
-	return (trimmed);
+	if (nmemb == 0 || size == 0)
+		ptr = NULL;
+	ptr = malloc(nmemb * size);
+	return (ptr);
 }
-int	main(void)
-{
-	char const	s1[90] = "I'm blue dabade";
-	char const	s2[90] = "blue";
+// int	main(void)
+// {
+// 	int	n;
+// 	int	*array;
 
-	printf("%s", ft_strtrim(s1, s2));
-}
+// 	n = 5;
+// 	array = (int *)calloc(n, sizeof(int));
+// 	for (int i = 0; i < n; i++) {
+//       printf("%d ", array[i]);
+//    }
+// }

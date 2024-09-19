@@ -6,12 +6,12 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:55:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 19:55:38 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/19 21:39:56 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_strlen.c"
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -19,28 +19,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 
 	i = 0;
-	while (s[i])
-		i++;
-	if (start > ft_strlen((char *)s))
+	if (start > ft_strlen(s))
 		return (NULL);
-	if (len > ft_strlen((char *)s + start))
-		len = ft_strlen((char *)s + start);
 	str = malloc((len + 1) * sizeof(char *));
 	while (i < len)
 	{
-		str[i] = s[start + 1];
+		str[i] = s[i];
 		i++;
 	}
 	return (str);
 }
-// int	main(void)
-// {
-// 	char const		idk[90] = "this is a string";
-// 	unsigned int	start;
-// 	size_t			len;
+int	main(void)
+{
+	char const	idk[90] = "i just want this part #############";
+	size_t		len;
 
-// 	start = 4;
-// 	len = 4;
-// 	ft_substr(idk, start, len);
-// 	printf(idk);
-// }
+	len = 22;
+	printf("%s", ft_substr(idk, 0, len));
+}

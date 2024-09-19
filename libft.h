@@ -6,23 +6,23 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 00:23:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 16:20:37 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/19 21:23:11 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 // ko
-char	**ft_split(const char *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	ft_putnbr_fd(int n, int fd);
-
-// to start
+void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
+
+// to start
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -33,7 +33,7 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_isalnum(int c);
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 int		ft_isascii(int c);
 int		ft_tolower(int c);
@@ -51,3 +51,4 @@ int		ft_atoi(char *str);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
+char	**ft_split(const char *s, char c);
