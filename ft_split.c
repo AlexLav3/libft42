@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:34:42 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/18 22:22:53 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:00:30 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,7 @@ char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 
 int	is_separator(char c, const char charset)
 {
-	int	i;
-
-	i = 0;
-	if (c == charset)
-		return (1);
-	i++;
-	return (0);
+	return (c == charset);
 }
 
 int	count_segments(const char *str, char charset)
@@ -79,7 +73,7 @@ char	**ft_split(const char *s, char c)
 
 	i = 0;
 	k = 0;
-	array = malloc((count_segments(s, c) + 1) * sizeof(const char *));
+	array = malloc((count_segments(s, c) + 1) * sizeof(char *));
 	while (s[i])
 	{
 		if (!is_separator(s[i], c))
@@ -87,8 +81,9 @@ char	**ft_split(const char *s, char c)
 			start = i;
 			while (s[i] && !is_separator(s[i], c))
 				i++;
-			array[k] = malloc((i + 1) * sizeof(const char));
+			array[k] = malloc((i - start + 1) * sizeof(char *));
 			ft_strncpy(array[k], &s[start], i - start);
+			array[k][i - start] = '\0';
 			k++;
 		}
 		else
@@ -97,18 +92,19 @@ char	**ft_split(const char *s, char c)
 	array[k] = NULL;
 	return (array);
 }
-int	main(void)
-{
-	char	s1[90] = "split ||this|for|me|||||!|";
-	char	s2 = '|';
-	char	**result;
-	int i = 0;
+// int	main(void)
+// {
+// 	char	s1[90] = "split ||this|for|me|||||!|";
+// 	char	s2;
+// 	char	**result;
+// 	int		i;
 
-	result = ft_split(s1, s2);
-
-	while(result[i])
-	{
-		printf("%s", result[i]);
-		i++;
-	}
-}
+// 	s2 = '|';
+// 	i = 0;
+// 	result = ft_split(s1, s2);
+// 	while (result[i])
+// 	{
+// 		printf("%s", result[i]);
+// 		i++;
+// 	}
+// }
