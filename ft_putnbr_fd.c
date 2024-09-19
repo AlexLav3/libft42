@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:56:18 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 21:41:19 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/19 22:35:19 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-		return (0);
+		return ;
 	}
 	if (n < 0)
 	{
@@ -28,7 +28,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n >= 10)
 	{
-		ft_putnbr_fd(fd, n / 10);
+		ft_putnbr_fd(n / 10, fd);
 	}
 	num = (n % 10) + '0';
 	write(fd, &num, 1);

@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:34:42 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 19:56:13 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/19 22:31:05 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	k = 0;
 	array = malloc((count_segments(s, c) + 1) * sizeof(char *));
+	if (!array)
+		return (NULL);
 	while (s[i])
 	{
 		if (!is_separator(s[i], c))
