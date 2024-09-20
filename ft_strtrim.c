@@ -6,33 +6,60 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:55:52 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 21:17:38 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/20 18:11:07 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_strlen.c"
+//#include "ft_strlen.c"
 #include "libft.h"
+
+char	*ft_strncpy_2(char *dest, const char *src, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (src[i] && i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}
+
+int	is_in_set(char c, const char *set)
+{
+	while (*set)
+	{
+		if (c == *set)
+			return (1);
+		set++;
+	}
+	return (0);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		k;
+	int		start;
+	int		end;
 	char	*trimmed;
 
-	trimmed = malloc((ft_strlen((char *)s1)) * sizeof(char *) + 1);
-	k = 0;
-	i = 0;
-	while (s1[i])
-	{
-		i++;
-	}
-	trimmed[k] = '\0';
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	while (s1[start] && is_in_set(s1[start], set))
+		start++;
+	end = ft_strlen(s1) - 1;
+	while (end >= start && is_in_set(s1[end], set))
+		end--;
+	trimmed = malloc((end - start + 2) * sizeof(char));
+	if (!trimmed)
+		return (NULL);
+	ft_strncpy_2(trimmed, &s1[start], end - start + 1);
+	trimmed[end - start + 1] = '\0';
 	return (trimmed);
-}
-int	main(void)
-{
-	char const	s1[90] = "I'm blue dabade";
-	char const	s2[90] = "blue";
-
-	printf("%s", ft_strtrim(s1, s2));
 }
