@@ -1,44 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 20:13:27 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/20 22:39:01 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/20 21:01:03 by elavrich          #+#    #+#             */
+/*   Updated: 2024/09/20 22:33:49 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "ft_strlen.c"
 #include "libft.h"
 
-//#include "ft_strlen.c"
-
-char	*ft_strcpy(char *dest, const char *src)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
+	char			*ptr;
 
+	ptr = s;
 	i = 0;
-	while (src[i])
+	while (i < ft_strlen(s))
 	{
-		dest[i] = src[i];
+		(*f)(i, ptr);
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	ptr[i] = '\0';
 }
-char	*ft_strdup(const char *s)
-{
-	char	*dst;
+// void	to_upper(unsigned int i, char *s)
+// {
+// 	unsigned int	k;
 
-	dst = malloc(ft_strlen(s) + 1);
-	if (!dst)
-		return (NULL);
-	ft_strcpy(dst, s);
-	return (dst);
-}
+// 	k = 0;
+// 	while (s[k] >= 'a' && s[k] <= 'z')
+// 	{
+// 		s[k] = s[k] - 32;
+// 		k++;
+// 	}
+// }
 
 // int	main(void)
 // {
-// 	printf("%s", ft_strdup("dsgggfdfsdgf"));
+// 	char	s1[] = "gdfgsdgdg";
+
+// 	ft_striteri(s1, to_upper);
+// 	printf("%s\n", s1);
 // }

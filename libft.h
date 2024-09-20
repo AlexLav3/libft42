@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 00:23:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/20 18:04:26 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/20 22:28:25 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@
 // ko
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-
-// to start
-char	*ft_itoa(int n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-
+char	*ft_strdup(const char *s);
 // ok
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
@@ -52,3 +49,4 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_itoa(int n);
