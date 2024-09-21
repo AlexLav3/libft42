@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 18:14:12 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 16:54:27 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 21:36:12 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,8 @@ char	*ft_itoa(int n)
 	}
 	while (nbr != 0)
 	{
-		num[i] = ((nbr % 10) + 48);
+		num[i--] = ((nbr % 10) + 48);
 		nbr = nbr / 10;
-		i--;
 	}
 	num[len] = '\0';
 	return (num);

@@ -6,29 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:34:42 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 16:30:13 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 21:58:00 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*ft_strncpy(char *dest, const char *src, unsigned int n)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
-}
 
 static int	is_separator(char c, const char charset)
 {
@@ -64,12 +46,32 @@ static int	count_segments(const char *str, char charset)
 	return (count);
 }
 
+static char	*copy_segment(const char *s, int start, int end)
+{
+	char	*segment;
+	int		length;
+	int		i;
+
+	i = 0;
+	length = end - start;
+	segment = malloc(length + 1);
+	if (!segment)
+		return (NULL);
+	while (i < length)
+	{
+		segment[i] = s[start + i];
+		i++;
+	}
+	segment[length] = '\0';
+	return (segment);
+}
+
 char	**ft_split(const char *s, char c)
 {
 	int		i;
 	int		k;
-	int		start;
 	char	**array;
+	int		start;
 
 	i = 0;
 	k = 0;
@@ -78,14 +80,12 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	while (s[i])
 	{
-		if (!is_separator(s[i], c))
+		if (s[i] != c)
 		{
 			start = i;
-			while (s[i] && !is_separator(s[i], c))
+			while (s[i] && s[i] != c)
 				i++;
-			array[k] = malloc((i - start + 1) * sizeof(char *));
-			ft_strncpy(array[k], &s[start], i - start);
-			array[k][i - start] = '\0';
+			array[k] = copy_segment(s, start, i);
 			k++;
 		}
 		else
@@ -94,6 +94,7 @@ char	**ft_split(const char *s, char c)
 	array[k] = NULL;
 	return (array);
 }
+
 // int	main(void)
 // {
 // 	char	s1[90] = "split ||this|for|me|||||!|";
