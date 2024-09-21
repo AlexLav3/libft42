@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 17:51:47 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 19:26:27 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 20:13:01 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*last;
+	t_list	*current;
 
-	last = ft_lstlast(*lst);
-	if (!lst || !new)
+	if (!new || !lst)
 		return ;
-	if (lst == NULL)
-		*lst = new;
-	else
+	if (*lst == NULL)
 	{
-		last = ft_lstlast(*lst);
-		last->next = new;
+		*lst = new;
+		return ;
 	}
+	current = ft_lstlast(*lst);
+	current->next = new;
 }
