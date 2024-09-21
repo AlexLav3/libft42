@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:56:16 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 20:25:49 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 22:10:00 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	if (fd < 0 || s == NULL)
-		return ;
 	while (s[i])
 	{
 		write(fd, &s[i], 1);
