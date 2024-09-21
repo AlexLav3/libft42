@@ -6,14 +6,14 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:57:03 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 19:57:05 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:29:23 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-int	space(char c)
+static int	space(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v'
 		|| c == '\f')

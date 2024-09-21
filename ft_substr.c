@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:55:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/20 17:31:42 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:27:12 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,20 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	char	*str;
-	int		str_len;
 
-	str_len = ft_strlen(s);
 	i = 0;
 	if (start >= ft_strlen(s))
 	{
 		str = malloc(1);
+		if (str)
+			str[0] = '\0';
 		return (str);
 	}
-	if (len > str_len - start)
-		len = str_len - start;
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
 	while (i < len && s[start + i])
 	{
 		str[i] = s[start + i];
@@ -42,11 +44,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 // 	char	*s;
 // 	char	*sub;
 
-// 	s = "Hello, world!";
-// 	sub = ft_substr(s, 7, 5);
+// 	s = "Hola";
+// 	sub = ft_substr(s, 0, 4);
 // 	if (sub)
 // 	{
-// 		printf("Substring: %s\n", sub); // Output should be "world"
+// 		printf("%s", sub);
 // 		free(sub);
 // 	}
 // 	return (0);

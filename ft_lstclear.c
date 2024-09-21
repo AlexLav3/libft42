@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 16:00:20 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 16:36:44 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/21 18:00:56 by elavrich          #+#    #+#             */
+/*   Updated: 2024/09/21 18:05:04 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int		i;
-	char	*char_ptr;
+	t_list	*tmp;
 
-	i = 0;
-	char_ptr = (char *)s;
-	while (char_ptr[i])
+	while (*lst)
 	{
-		if (char_ptr[i] == c)
-		{
-			return (&char_ptr[i]);
-		}
-		i++;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	if (c == '\0')
-		return (&char_ptr[i]);
-	return (NULL);
+	free(*lst);
+	*lst = NULL;
 }
-// int	main(void)
-// {
-// 	const char	s[] = "teste";
-// 	char ch = 'e';
-// 	printf("%s",ft_strchr(s,ch));
-// }

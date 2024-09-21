@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 16:00:20 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 16:36:44 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/21 17:58:31 by elavrich          #+#    #+#             */
+/*   Updated: 2024/09/21 18:00:21 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int		i;
-	char	*char_ptr;
-
-	i = 0;
-	char_ptr = (char *)s;
-	while (char_ptr[i])
-	{
-		if (char_ptr[i] == c)
-		{
-			return (&char_ptr[i]);
-		}
-		i++;
-	}
-	if (c == '\0')
-		return (&char_ptr[i]);
-	return (NULL);
+	del(lst->content);
+	free(lst);
 }
-// int	main(void)
-// {
-// 	const char	s[] = "teste";
-// 	char ch = 'e';
-// 	printf("%s",ft_strchr(s,ch));
-// }

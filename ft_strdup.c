@@ -6,15 +6,14 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 20:13:27 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/20 22:39:01 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:36:17 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 //#include "ft_strlen.c"
 
-char	*ft_strcpy(char *dest, const char *src)
+static char	*ft_strcpy(char *dest, const char *src)
 {
 	unsigned int	i;
 
@@ -27,6 +26,7 @@ char	*ft_strcpy(char *dest, const char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 char	*ft_strdup(const char *s)
 {
 	char	*dst;

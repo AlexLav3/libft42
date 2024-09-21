@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 16:00:20 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 16:36:44 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/21 17:51:47 by elavrich          #+#    #+#             */
+/*   Updated: 2024/09/21 19:26:27 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		i;
-	char	*char_ptr;
+	t_list	*last;
 
-	i = 0;
-	char_ptr = (char *)s;
-	while (char_ptr[i])
+	last = ft_lstlast(*lst);
+	if (!lst || !new)
+		return ;
+	if (lst == NULL)
+		*lst = new;
+	else
 	{
-		if (char_ptr[i] == c)
-		{
-			return (&char_ptr[i]);
-		}
-		i++;
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	if (c == '\0')
-		return (&char_ptr[i]);
-	return (NULL);
 }
-// int	main(void)
-// {
-// 	const char	s[] = "teste";
-// 	char ch = 'e';
-// 	printf("%s",ft_strchr(s,ch));
-// }

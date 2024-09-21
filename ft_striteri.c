@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 21:01:03 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/20 22:33:49 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 15:32:37 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,20 @@
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
-	char			*ptr;
 
-	ptr = s;
 	i = 0;
-	while (i < ft_strlen(s))
+	while (s[i])
 	{
-		(*f)(i, ptr);
+		(*f)(i, &s[i]);
 		i++;
 	}
-	ptr[i] = '\0';
 }
+
 // void	to_upper(unsigned int i, char *s)
 // {
-// 	unsigned int	k;
-
-// 	k = 0;
-// 	while (s[k] >= 'a' && s[k] <= 'z')
+// 	if (*s >= 'a' && *s <= 'z')
 // 	{
-// 		s[k] = s[k] - 32;
-// 		k++;
+// 		*s = *s - 32;
 // 	}
 // }
 

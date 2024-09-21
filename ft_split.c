@@ -6,13 +6,13 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:34:42 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 22:31:05 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:30:13 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, unsigned int n)
+static char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 {
 	unsigned int	i;
 
@@ -30,12 +30,12 @@ char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 	return (dest);
 }
 
-int	is_separator(char c, const char charset)
+static int	is_separator(char c, const char charset)
 {
 	return (c == charset);
 }
 
-int	count_segments(const char *str, char charset)
+static int	count_segments(const char *str, char charset)
 {
 	int	count;
 	int	in_segment;

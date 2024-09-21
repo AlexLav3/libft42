@@ -6,14 +6,14 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:55:52 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/20 18:11:07 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:31:43 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "ft_strlen.c"
 #include "libft.h"
 
-char	*ft_strncpy_2(char *dest, const char *src, unsigned int n)
+static char	*ft_strncpy_2(char *dest, const char *src, unsigned int n)
 {
 	unsigned int	i;
 
@@ -31,7 +31,7 @@ char	*ft_strncpy_2(char *dest, const char *src, unsigned int n)
 	return (dest);
 }
 
-int	is_in_set(char c, const char *set)
+static int	is_in_set(char c, const char *set)
 {
 	while (*set)
 	{
