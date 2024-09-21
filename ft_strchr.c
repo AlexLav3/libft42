@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:00:20 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/21 16:36:44 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/21 21:05:01 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ char	*ft_strchr(const char *s, int c)
 	char_ptr = (char *)s;
 	while (char_ptr[i])
 	{
-		if (char_ptr[i] == c)
+		if (char_ptr[i] == (unsigned char)c)
 		{
 			return (&char_ptr[i]);
 		}
 		i++;
 	}
-	if (c == '\0')
+	if ((unsigned char)c == '\0')
 		return (&char_ptr[i]);
 	return (NULL);
 }
